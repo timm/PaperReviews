@@ -8,32 +8,38 @@ conf = [l for l in content if l.startswith('Conf')][0][5:-1].strip(' ')
 author = [l for l in content if l.startswith('Author')][0][7:-1].strip(' ')
 keyword = [l for l in content if l.startswith('Keywords')][0][9:-1].strip(' ')
 
-print("Title: %s" % title)
-print("Conference/Journal: %s"%conf)
-print("Author: %s" % author)
-
-# determine whether this paper existed
-# TODO
-
 notefilename = 'notes/'+title.replace(' ','_')+'.md'
 
-with open('README.md', 'a') as f:
-    f.write('|%s|[%s](%s)|%s|%s|\n' % (
-        datetime.date.today().strftime('%b %m, %Y'),
-        title,
-        notefilename,
-        conf,
-        keyword))
+# determine whether the notefilename in README.md
+with open('README.md', 'r') as f:
+    readme = f.read()
 
-with open(notefilename, 'w') as f:
-    f.write('|Title|%s|\n'%title)
-    f.write('|---------|---|\n')
-    f.write('|Conference/Journal|%s|\n'%conf)
-    f.write('|Author|%s|\n'%title)
-    f.write('|Key words|%s|\n'%keyword)
+exist = notefilename in readme
+if exist:
+    print('Paper titled %s exist in the notes, will update that.' % title)
 
+if not exist:
+    with open('README.md', 'a') as f:
+        f.write('|%s|[%s](%s)|%s|%s|\n' % (
+            datetime.date.today().strftime('%b %m, %Y'),
+            title,
+            notefilename,
+            conf,
+            keyword))
+
+if not exist:
+    with open(notefilename, 'w') as f:
+        f.write('|Title|%s|\n'%title)
+        f.write('|---------|---|\n')
+        f.write('|Conference/Journal|%s|\n'%conf)
+        f.write('|Author|%s|\n'%title)
+        f.write('|Key words|%s|\n'%keyword)
+
+with open(notefilename, 'a') as f:
     for i,v in enumerate(content):
         if v.startswith('~~~'): break
+    if exist:
+        f.write('\n=== update on %s ===  \n  \n  \n' % datetime.date.today().strftime('%b %m, %Y'))
 
     incodemode = False
     while i < len(content)-1:
@@ -57,4 +63,5 @@ with open(notefilename, 'w') as f:
             continue
          
         f.write(l.replace('\n','  \n'))
+
 
