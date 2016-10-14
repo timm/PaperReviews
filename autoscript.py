@@ -1,4 +1,4 @@
-with open('t.md', 'r') as f:
+with open('tempalte.txt', 'r') as f:
     content = f.readlines()
 
 title = [l for l in content if l.startswith('Title:')][0][6:-1].strip(' ')
