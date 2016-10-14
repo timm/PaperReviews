@@ -15,14 +15,17 @@ print("Author: %s" % author)
 # determine whether this paper existed
 # TODO
 
+notefilename = 'notes/'+title.replace(' ','_')+'.md'
+
 with open('README.md', 'a') as f:
-    f.write('|%s|%s|%s|%s|\n' % (
+    f.write('|%s|[%s](%s)|%s|%s|\n' % (
         datetime.date.today().strftime('%b %m, %Y'),
         title,
+        notefilename,
         conf,
         keyword))
 
-with open('notes/'+title.replace(' ','_')+'.md', 'w') as f:
+with open(notefilename, 'w') as f:
     f.write('|Title|%s|\n'%title)
     f.write('|---------|---|\n')
     f.write('|Conference/Journal|%s|\n'%conf)
