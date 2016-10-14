@@ -1,4 +1,3 @@
----
 - Title:
 
 A multiobjective approach to prioritize and recommend bugs in open source repositories
@@ -12,7 +11,6 @@ Dreyton, Duany, et al. "A Multi-objective Approach to Prioritize and Recommend B
 
 Fri Oct 14 (init)
 
----
 
 here are the comments for this
 
