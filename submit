@@ -1,5 +1,6 @@
-cp .template.txt template.txt
+cd ~/PaperReviews
 git pull origin master
 git add *
 git commit -m "update"
 git push origin master
+cp .template.txt template.txt
