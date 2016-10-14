@@ -1,4 +1,6 @@
-with open('tempalte.txt', 'r') as f:
+import datetime
+
+with open('template.txt', 'r') as f:
     content = f.readlines()
 
 title = [l for l in content if l.startswith('Title:')][0][6:-1].strip(' ')
@@ -12,6 +14,13 @@ print("Author: %s" % author)
 
 # determine whether this paper existed
 # TODO
+
+with open('README.md', 'a') as f:
+    f.write('|%s|%s|%s|%s|\n' % (
+        datetime.date.today().strftime('%b %m, %Y'),
+        title,
+        conf,
+        keyword))
 
 with open('notes/'+title.replace(' ','_')+'.md', 'w') as f:
     f.write('|Title|%s|\n'%title)
