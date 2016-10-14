@@ -1,4 +1,5 @@
 cd ~/PaperReviews
+python autoscript.py
 git pull origin master
 git add *
 git commit -m "update"
