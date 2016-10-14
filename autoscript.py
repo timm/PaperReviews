@@ -9,6 +9,7 @@ conf = [l for l in content if l.startswith('Conf')][0][5:-1].strip(' ')
 author = [l for l in content if l.startswith('Author')][0][7:-1].strip(' ')
 keyword = [l for l in content if l.startswith('Keywords')][0][9:-1].strip(' ')
 
+if title == '***': exit(0)
 notefilename = 'notes/'+title.replace(' ','_')+'.md'
 
 # determine whether the notefilename in README.md
