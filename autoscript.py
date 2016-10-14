@@ -34,7 +34,7 @@ if not exist:
         f.write('|Title|%s|\n'%title)
         f.write('|---------|---|\n')
         f.write('|Conference/Journal|%s|\n'%conf)
-        f.write('|Author|%s|\n'%title)
+        f.write('|Author|%s|\n'%author)
         f.write('|Key words|%s|\n'%keyword)
 
 with open(notefilename, 'a') as f:
