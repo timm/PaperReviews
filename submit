@@ -1,0 +1,5 @@
+cp .template.txt template.txt
+git pull origin building
+git add *
+git commit -m "update"
+git push origin building
