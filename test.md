@@ -1,5 +1,5 @@
 | Title   | 
-A multiobjective approach to prioritize and recommend bugs in open source repositories                                         |
+A multiobjective approach to prioritize and recommend bugs in open source repositories|
 |---------|---------------------------------------------------------------------|
 | BibTex  |
 ``` 
