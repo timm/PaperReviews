@@ -1,4 +1,5 @@
 import datetime
+from subprocess import call
 
 with open('template.txt', 'r') as f:
     content = f.readlines()
@@ -63,5 +64,4 @@ with open(notefilename, 'a') as f:
             continue
          
         f.write(l.replace('\n','  \n'))
-
 
