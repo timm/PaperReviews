@@ -23,7 +23,7 @@ if exist:
 if not exist:
     with open('README.md', 'a') as f:
         f.write('|%s|[%s](%s)|%s|%s|\n' % (
-            datetime.date.today().strftime('%b %m, %Y'),
+            datetime.date.today().strftime('%b %d, %Y'),
             title,
             notefilename,
             conf,
@@ -41,7 +41,7 @@ with open(notefilename, 'a') as f:
     for i,v in enumerate(content):
         if v.startswith('~~~'): break
     if exist:
-        f.write('\n=== update on %s ===  \n  \n  \n' % datetime.date.today().strftime('%b %m, %Y'))
+        f.write('\n=== update on %s ===  \n  \n  \n' % datetime.date.today().strftime('%b %d, %Y'))
 
     incodemode = False
     while i < len(content)-1:
